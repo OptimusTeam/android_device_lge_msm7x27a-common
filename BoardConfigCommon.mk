@@ -69,23 +69,24 @@ TARGET_DOESNT_USE_FENCE_SYNC := true
 QCOM_BSP_WITH_GENLOCK := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
-# Webkit
+## Webkit
 PRODUCT_PACKAGES += \
-    libwebcore  
+    libwebcore	
+
+# (classic webview provider)
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.webview.provider=classic
 
 ENABLE_WEBGL := true
 PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
 TARGET_ARCH_LOWMEM := true
-TARGET_WEBKIT_USE_MORE_MEMORY  := true
-TARGET_FORCE_CPU_UPLOAD  := true
+JS_ENGINE	:= v8
+HTTP	:= chrome
+WITH_JIT	:= true
+ENABLE_JSC_JIT	:= true
+TARGET_WEBKIT_USE_MORE_MEMORY	:= true
+TARGET_FORCE_CPU_UPLOAD	:= true
 TARGET_USES_JELLYBEAN_BASEBAND := true
-
-# Add h/w acceleration in browser
-WITH_JIT := true
-ENABLE_JSC_JIT := true
-JS_ENGINE := v8
-HTTP := chrome
-HWUI_COMPILE_FOR_PERF := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
