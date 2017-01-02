@@ -39,6 +39,10 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 TARGET_ARCH_LOWMEM := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
+# Compiler Optimization
+ARCH_ARM_HIGH_OPTIMIZATION := true
+ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
+
 # Compiler flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
