@@ -28,7 +28,7 @@ TARGET_NO_RADIOIMAGE := true
 # Architecture and CPU
 TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-TARGET_CPU_VARIANT := cortex-a5
+TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
