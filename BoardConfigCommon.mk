@@ -44,8 +44,10 @@ ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
 
 # Compiler flags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4
+TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4
+COMMON_GLOBAL_CFLAGS += -DUSE_MDP3
+COMMON_GLOBAL_CFLAGS += -DLPA_DEFAULT_BUFFER_SIZE=480
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
