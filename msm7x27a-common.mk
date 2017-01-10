@@ -185,7 +185,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.webview.provider=classic \
     ro.soundrecorder.default_wav2ch=true
 
-PRODUCT_PROPERTY_OVERRIDES += \
+# Use Prebuilt AOSP LatinIME
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/app/AOSPLatinIME/LatinIME.apk:system/app/LatinIME.apk
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/app/AOSPLatinIME/lib/libjni_latinime.so:system/lib/llibjni_latinime.so
+
     ro.cwm.forbid_format="/persist-lg,/mpt" \
     ro.cwm.forbid_mount="/persist-lg,/mpt" \
 
