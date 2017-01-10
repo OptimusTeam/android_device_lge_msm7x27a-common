@@ -189,6 +189,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/app/AOSPLatinIME/LatinIME.apk:system/app/LatinIME.apk
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/app/AOSPLatinIME/lib/libjni_latinime.so:system/lib/llibjni_latinime.so
 
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.forbid_format="/persist-lg,/mpt" \
     ro.cwm.forbid_mount="/persist-lg,/mpt" \
 
