@@ -57,20 +57,20 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x27a \
     copybit.msm7x27a \
     libqdMetaData \
-    memtrack.msm7x27a \
-    #hwcomposer.msm7x27a 
+    #hwcomposer.msm7x27a \
+    memtrack.msm7x27a 
+
 
 # off-mode charging
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images
 
-# Omx
+# Media HAL
 PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
-    libstagefrighthw \
-    libdashplayer
+    libstagefrighthw 
 
 # Gps hal
 PRODUCT_PACKAGES += \

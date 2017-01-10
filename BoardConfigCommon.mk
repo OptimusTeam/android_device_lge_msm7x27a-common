@@ -32,6 +32,9 @@ TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
+ARCH_ARM_HAVE_ARMV7A := true
+ARCH_ARM_HAVE_NEON := true
+ARCH_ARM_HAVE_VFP := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_SMP := true
 TARGET_CORTEX_CACHE_LINE_32 := true
@@ -42,15 +45,19 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 # Compiler Optimization
 ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
+TARGET_USE_O3 := true
+
+# cortex-a9 is used to take advantage of NEON optimizations
+TARGET_ARCH_VARIANT_CPU := cortex-a9
+TARGET_ARCH_VARIANT_FPU := neon
 
 # Compiler flags
-TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4
-TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4
+TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a9
+TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a9
 COMMON_GLOBAL_CFLAGS += -DUSE_MDP3
 COMMON_GLOBAL_CFLAGS += -DLPA_DEFAULT_BUFFER_SIZE=480
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP_WITH_GENLOCK
-COMMON_GLOBAL_CFLAGS += -DMSMFB_METADATA_GET
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/lge/msm7x27a-common
@@ -80,6 +87,7 @@ BOARD_USE_MHEAP_SCREENSHOT := true
 TARGET_DOESNT_USE_FENCE_SYNC := true
 QCOM_BSP_WITH_GENLOCK := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
+BOARD_USES_ADRENO_200 := true
 
 ## Webkit
 PRODUCT_PACKAGES += \
@@ -120,11 +128,40 @@ BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x27a
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
-# Other
+BOARD_SEPOLICY_DIRS += \
+       device/lge/msm7x27a-common/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+       untrusted_app.te \
+       vold.te \
+	file_contexts \
+	app.te \
+	bluetooth.te \
+	device.te \
+	domain.te \
+	drmserver.te \
+	file.te \
+	hci_init.te \
+	healthd.te \
+	init.te \
+	init_shell.te \
+	keystore.te \
+	kickstart.te \
+	mediaserver.te \
+	netd.te \
+	rild.te \
+	surfaceflinger.te \
+	system.te \
+	ueventd.te \
+	wpa_supplicant.te
+
+# Misc
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 BOARD_USE_LEGACY_SENSORS_FUSION := false
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_BOOTANIMATION_USE_RGB565 := true
+TARGET_BOOTANIMATION_HALF_RES := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x27a
 TARGET_PROVIDES_LIBLIGHT := true
 
