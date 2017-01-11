@@ -187,7 +187,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Use Prebuilt AOSP LatinIME
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/app/AOSPLatinIME/LatinIME.apk:system/app/LatinIME.apk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/app/AOSPLatinIME/lib/libjni_latinime.so:system/lib/llibjni_latinime.so
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/app/AOSPLatinIME/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.forbid_format="/persist-lg,/mpt" \
