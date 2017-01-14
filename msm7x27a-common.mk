@@ -70,6 +70,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
+    libdashplayer \
     libstagefrighthw 
 
 # Gps hal
